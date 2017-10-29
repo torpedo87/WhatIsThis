@@ -24,74 +24,71 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kef-zG-fjX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-qW-OMs" customClass="RoundedShadowView" customModule="WhatIsThis" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="30" width="335" height="60"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-JO-rAI">
-                                                <rect key="frame" x="8" y="8" width="319" height="44"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="the name of item captured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7pd-DE-gh3">
-                                                        <rect key="frame" x="59.5" y="0.0" width="200.5" height="32"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" red="0.091823838651180267" green="0.63749819993972778" blue="0.096601419150829315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="CONFIDENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHx-Jj-CDf">
-                                                        <rect key="frame" x="127.5" y="32" width="64.5" height="12"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="p7f-JO-rAI" firstAttribute="top" secondItem="PiP-qW-OMs" secondAttribute="top" constant="8" id="2Ha-EY-UBg"/>
-                                            <constraint firstAttribute="bottom" secondItem="p7f-JO-rAI" secondAttribute="bottom" constant="8" id="Cd7-JC-Fc8"/>
-                                            <constraint firstAttribute="trailing" secondItem="p7f-JO-rAI" secondAttribute="trailing" constant="8" id="Py0-Jv-5dO"/>
-                                            <constraint firstAttribute="height" constant="60" id="YBs-Bo-o73"/>
-                                            <constraint firstItem="p7f-JO-rAI" firstAttribute="leading" secondItem="PiP-qW-OMs" secondAttribute="leading" constant="8" id="Z6d-na-TEr"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y6-yi-BZp" customClass="RoundedShadowBtn" customModule="WhatIsThis" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="621" width="85" height="26"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="pZC-Ye-4l9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <state key="normal" title="FLASH OFF">
-                                            <color key="titleColor" red="0.99942404029999998" green="0.35488313710000002" blue="0.081106019779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtT-c8-oq5" customClass="RoundedShadowImgView" customModule="WhatIsThis" customModuleProvider="target">
-                                        <rect key="frame" x="280" y="519" width="75" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="7Il-pY-pSa"/>
-                                            <constraint firstAttribute="height" constant="128" id="CcH-0M-cPw"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.66274509800000003" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y6-yi-BZp" customClass="RoundedShadowBtn" customModule="WhatIsThis" customModuleProvider="target">
+                                <rect key="frame" x="20" y="621" width="100" height="26"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="0y6-yi-BZp" firstAttribute="leading" secondItem="Kef-zG-fjX" secondAttribute="leading" constant="20" id="23r-Ot-HHn"/>
-                                    <constraint firstAttribute="trailing" secondItem="NtT-c8-oq5" secondAttribute="trailing" constant="20" id="66S-CF-YE4"/>
-                                    <constraint firstItem="PiP-qW-OMs" firstAttribute="top" secondItem="Kef-zG-fjX" secondAttribute="top" constant="30" id="Kte-a6-ZMi"/>
-                                    <constraint firstItem="PiP-qW-OMs" firstAttribute="leading" secondItem="Kef-zG-fjX" secondAttribute="leading" constant="20" id="WAH-g2-dXX"/>
-                                    <constraint firstAttribute="bottom" secondItem="0y6-yi-BZp" secondAttribute="bottom" constant="20" id="hXD-yL-MtH"/>
-                                    <constraint firstAttribute="bottom" secondItem="NtT-c8-oq5" secondAttribute="bottom" constant="20" id="qK4-Wr-zeH"/>
-                                    <constraint firstAttribute="trailing" secondItem="PiP-qW-OMs" secondAttribute="trailing" constant="20" id="vdW-mm-rSI"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="bFu-MY-pNS"/>
+                                    <constraint firstAttribute="height" constant="26" id="bUi-dE-gzG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="FLASH OFF">
+                                    <color key="titleColor" red="0.99942404029999998" green="0.35488313710000002" blue="0.081106019779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtT-c8-oq5" customClass="RoundedShadowImgView" customModule="WhatIsThis" customModuleProvider="target">
+                                <rect key="frame" x="280" y="519" width="75" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="7Il-pY-pSa"/>
+                                    <constraint firstAttribute="height" constant="128" id="CcH-0M-cPw"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-qW-OMs" customClass="RoundedShadowView" customModule="WhatIsThis" customModuleProvider="target">
+                                <rect key="frame" x="20" y="50" width="335" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-JO-rAI">
+                                        <rect key="frame" x="8" y="8" width="319" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="the name of item captured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7pd-DE-gh3">
+                                                <rect key="frame" x="59.5" y="0.0" width="200.5" height="32"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <color key="textColor" red="0.091823838651180267" green="0.63749819993972778" blue="0.096601419150829315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="CONFIDENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHx-Jj-CDf">
+                                                <rect key="frame" x="127.5" y="32" width="64.5" height="12"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="p7f-JO-rAI" firstAttribute="top" secondItem="PiP-qW-OMs" secondAttribute="top" constant="8" id="2Ha-EY-UBg"/>
+                                    <constraint firstAttribute="bottom" secondItem="p7f-JO-rAI" secondAttribute="bottom" constant="8" id="Cd7-JC-Fc8"/>
+                                    <constraint firstAttribute="trailing" secondItem="p7f-JO-rAI" secondAttribute="trailing" constant="8" id="Py0-Jv-5dO"/>
+                                    <constraint firstAttribute="height" constant="60" id="YBs-Bo-o73"/>
+                                    <constraint firstItem="p7f-JO-rAI" firstAttribute="leading" secondItem="PiP-qW-OMs" secondAttribute="leading" constant="8" id="Z6d-na-TEr"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NtT-c8-oq5" secondAttribute="trailing" constant="20" id="0Gs-F4-14C"/>
+                            <constraint firstItem="PiP-qW-OMs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="31h-E0-9oe"/>
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4vx-MZ-dlA"/>
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Ad-dp-HbE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PiP-qW-OMs" secondAttribute="trailing" constant="20" id="8P6-v2-iT2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NtT-c8-oq5" secondAttribute="bottom" constant="20" id="U06-yQ-OkW"/>
+                            <constraint firstItem="PiP-qW-OMs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Zfi-yn-Akj"/>
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aaB-YN-vHy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0y6-yi-BZp" secondAttribute="bottom" constant="20" id="q1e-9h-zNk"/>
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vhM-SY-eun"/>
+                            <constraint firstItem="0y6-yi-BZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ypV-rf-icS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
