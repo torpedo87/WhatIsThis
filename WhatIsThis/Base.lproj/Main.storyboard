@@ -78,6 +78,10 @@
                                     <constraint firstItem="p7f-JO-rAI" firstAttribute="leading" secondItem="PiP-qW-OMs" secondAttribute="leading" constant="8" id="Z6d-na-TEr"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pjV-YH-tib">
+                                <rect key="frame" x="307" y="573" width="20" height="20"/>
+                                <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -86,7 +90,9 @@
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4vx-MZ-dlA"/>
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Ad-dp-HbE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PiP-qW-OMs" secondAttribute="trailing" constant="20" id="8P6-v2-iT2"/>
+                            <constraint firstItem="pjV-YH-tib" firstAttribute="centerX" secondItem="NtT-c8-oq5" secondAttribute="centerX" id="PA6-XN-OnY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NtT-c8-oq5" secondAttribute="bottom" constant="20" id="U06-yQ-OkW"/>
+                            <constraint firstItem="pjV-YH-tib" firstAttribute="centerY" secondItem="NtT-c8-oq5" secondAttribute="centerY" id="XIf-bq-xgB"/>
                             <constraint firstItem="PiP-qW-OMs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Zfi-yn-Akj"/>
                             <constraint firstItem="Kef-zG-fjX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aaB-YN-vHy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0y6-yi-BZp" secondAttribute="bottom" constant="20" id="q1e-9h-zNk"/>
@@ -102,6 +108,7 @@
                         <outlet property="flashBtn" destination="0y6-yi-BZp" id="iAc-Px-w0Q"/>
                         <outlet property="identificationLabel" destination="7pd-DE-gh3" id="5D4-nP-t9m"/>
                         <outlet property="roundedLabelView" destination="PiP-qW-OMs" id="JaF-Y7-jr5"/>
+                        <outlet property="spinner" destination="pjV-YH-tib" id="GXm-fn-ROQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

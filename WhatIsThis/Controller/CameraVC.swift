@@ -23,7 +23,9 @@ class CameraVC: UIViewController {
   var previewLayer: AVCaptureVideoPreviewLayer!
   var photoData: Data?
   var flashState: FlashState = .off
+  var speechSynthesizer = AVSpeechSynthesizer()
 
+  @IBOutlet weak var spinner: UIActivityIndicatorView!
   @IBOutlet weak var roundedLabelView: RoundedShadowView!
   @IBOutlet weak var cameraView: UIView!
   @IBOutlet weak var confidenceLabel: UILabel!
@@ -33,12 +35,13 @@ class CameraVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    speechSynthesizer.delegate = self
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     previewLayer.frame = cameraView.bounds
+    spinner.isHidden = true
   }
   
   //초기화
@@ -78,6 +81,10 @@ class CameraVC: UIViewController {
   }
   
   @objc func didTapCameraView() {
+    cameraView.isUserInteractionEnabled = false
+    spinner.isHidden = false
+    spinner.startAnimating()
+    
     let settings = AVCapturePhotoSettings()
     
     //thumbnail size
@@ -95,21 +102,34 @@ class CameraVC: UIViewController {
     cameraOutput.capturePhoto(with: settings, delegate: self)
   }
   
+  //요청을 입력하면 결과를 처리한다
   func resultsMethod(request: VNRequest, error: Error?) {
     guard let results = request.results as? [VNClassificationObservation] else { return }
     for classification in results {
       if classification.confidence < 0.5 {
-        self.identificationLabel.text = "I'm not sure what this is"
+        let unknownObjectMessage = "이게 뭔지 내가 어떻게 알아. 다시 찍어봐 임마"
+        self.identificationLabel.text = unknownObjectMessage
+        synthesizeSpeech(fromString: unknownObjectMessage)
         self.confidenceLabel.text = ""
-        print("low------", classification.identifier)
-        continue
+        //print("low------", classification.identifier)
+        break
       } else {
-        self.identificationLabel.text = classification.identifier
-        self.confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
-        print("high---------", classification.identifier)
+        let identification = classification.identifier
+        let confidence = Int(classification.confidence * 100)
+        self.identificationLabel.text = identification
+        self.confidenceLabel.text = "CONFIDENCE: \(confidence)%"
+        let completeSentence = "이거 \(identification) 같은데, \(confidence)% 정도 확실해"
+        synthesizeSpeech(fromString: completeSentence)
+        //print("high---------", classification.identifier)
         break
       }
     }
+  }
+  
+  //string 을 입력하면 말한다
+  func synthesizeSpeech(fromString string:String) {
+    let speechUtterence = AVSpeechUtterance(string: string)
+    speechSynthesizer.speak(speechUtterence)
   }
   
   @IBAction func flashBtnPressed(_ sender: Any) {
@@ -145,5 +165,13 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
       let image = UIImage(data: photoData!)
       self.capturedImgView.image = image
     }
+  }
+}
+
+extension CameraVC: AVSpeechSynthesizerDelegate {
+  func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+    cameraView.isUserInteractionEnabled = true
+    spinner.isHidden = true
+    spinner.stopAnimating()
   }
 }
