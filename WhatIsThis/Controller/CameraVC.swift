@@ -89,10 +89,12 @@ class CameraVC: UIViewController {
       if classification.confidence < 0.5 {
         self.identificationLabel.text = "I'm not sure what this is"
         self.confidenceLabel.text = ""
-        break
+        print("low------", classification.identifier)
+        continue
       } else {
         self.identificationLabel.text = classification.identifier
         self.confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
+        print("high---------", classification.identifier)
         break
       }
     }
@@ -108,7 +110,7 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
       
       //coreML 에 보내기
       do {
-        //뇌 모델
+        //Vision을 이용해 뇌 모델 만들기
         let model = try VNCoreMLModel(for: SqueezeNet().model)
         let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod)
         let handler = VNImageRequestHandler(data: photoData!)
