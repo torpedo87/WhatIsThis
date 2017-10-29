@@ -37,6 +37,9 @@
                                 <state key="normal" title="FLASH OFF">
                                     <color key="titleColor" red="0.99942404029999998" green="0.35488313710000002" blue="0.081106019779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="flashBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DCa-dU-0vN"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NtT-c8-oq5" customClass="RoundedShadowImgView" customModule="WhatIsThis" customModuleProvider="target">
                                 <rect key="frame" x="280" y="519" width="75" height="128"/>
