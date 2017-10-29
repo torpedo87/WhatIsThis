@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import CoreML
+import Vision
 
 class CameraVC: UIViewController {
   
@@ -71,12 +73,29 @@ class CameraVC: UIViewController {
   
   @objc func didTapCameraView() {
     let settings = AVCapturePhotoSettings()
-    let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first
+    
     //thumbnail size
-    let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType, kCVPixelBufferWidthKey as String: 160, kCVPixelBufferHeightKey as String: 160]
-    settings.previewPhotoFormat = previewFormat
+    //let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first
+    //let previewFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPixelType, kCVPixelBufferWidthKey as String: 160, kCVPixelBufferHeightKey as String: 160]
+    //settings.previewPhotoFormat = previewFormat
+    settings.previewPhotoFormat = settings.embeddedThumbnailPhotoFormat
     
     cameraOutput.capturePhoto(with: settings, delegate: self)
+  }
+  
+  func resultsMethod(request: VNRequest, error: Error?) {
+    guard let results = request.results as? [VNClassificationObservation] else { return }
+    for classification in results {
+      if classification.confidence < 0.5 {
+        self.identificationLabel.text = "I'm not sure what this is"
+        self.confidenceLabel.text = ""
+        break
+      } else {
+        self.identificationLabel.text = classification.identifier
+        self.confidenceLabel.text = "CONFIDENCE: \(Int(classification.confidence * 100))%"
+        break
+      }
+    }
   }
 }
 
@@ -86,6 +105,18 @@ extension CameraVC: AVCapturePhotoCaptureDelegate {
       debugPrint(error)
     } else {
       photoData = photo.fileDataRepresentation()
+      
+      //coreML 에 보내기
+      do {
+        //뇌 모델
+        let model = try VNCoreMLModel(for: SqueezeNet().model)
+        let request = VNCoreMLRequest(model: model, completionHandler: resultsMethod)
+        let handler = VNImageRequestHandler(data: photoData!)
+        try handler.perform([request])
+      } catch {
+        debugPrint("could not send to coreML: ", error.localizedDescription)
+      }
+      
       let image = UIImage(data: photoData!)
       self.capturedImgView.image = image
     }
